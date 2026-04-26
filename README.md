@@ -16,7 +16,7 @@ When you click **Analyze Market Match**, the following data is sent to and store
 | **Suburb** (extracted from address) | Yes | To power suburb-level demand heat maps |
 | **Budget** | Yes | To compare your target price against comparable suburb sales |
 | **Bedrooms** *(optional)* | Yes, if provided | Helps select the right apartment price cluster for units and contributes to anonymised apartment-type tagging in future suburb reports |
-| **Hashed session ID** | Yes | Your device-generated UUID is **one-way hashed** (SHA-256) before being stored. It is used solely to enforce the 5 free checks per day limit. The hash cannot be reversed to identify you |
+| **Hashed session ID** | Yes | Your device generates an anonymous UUID and hashes it locally using **SHA-256** before transmission. Only the hash is sent to our backend and used solely to enforce the 5 free checks per day limit. The hash cannot be reversed to identify you |
 | **Timestamp** | Yes | To support 6-month data retention and time-series trend analysis |
 
 ---
@@ -59,7 +59,7 @@ The Extension stores the following data locally on your device only:
 
 | Stored value | Purpose |
 |---|---|
-| **Anonymous session ID** | Randomly generated UUID used to count your daily free checks. Transmitted to the backend as a one-way hash only |
+| **Anonymous session ID** | Randomly generated UUID used to count your daily free checks. Stored locally on your device; only its one-way SHA-256 hash is transmitted |
 | **Daily usage counter** | Number of checks used today |
 
 Neither value is used to identify you personally.
