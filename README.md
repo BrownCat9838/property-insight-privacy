@@ -45,7 +45,7 @@ We do **not** collect, store, or have access to:
 
 ## 4. Data Retention
 
-Stored search records (full address, suburb, bedrooms, budget, hashed session ID, and timestamp) are retained for **6 months** to maintain the relevance of market trend data, after which they are deleted from our systems.
+Stored search records (full address, suburb, bedrooms, budget, hashed session ID, and timestamp) are retained for **6 months** to maintain the relevance of market trend data, after which they are permanently and automatically deleted from our systems.
 
 Calculated results such as the Market Match Index score, market sentiment, and clearance rate are never persisted — they are computed fresh on each request and exist only in your browser session.
 
@@ -70,11 +70,11 @@ Neither value is used to identify you personally.
 
 We use the following services solely to provide the Extension's analytical functions:
 
-| Service | Purpose |
-|---|---|
-| **Render** | Backend API hosting |
-| **Supabase** | Property database storage |
-| **Google Places API** *(via our backend proxy)* | Address autocomplete. Your address input passes through our backend — the API key is never exposed to the browser |
+| Service | Purpose | User data received |
+|---|---|---|
+| **Render** | Backend API hosting — all analysis requests are processed here | Address, suburb, budget, bedrooms (optional), hashed session ID |
+| **Google Places API** *(via our backend proxy)* | Address autocomplete. Requests are proxied through our backend; the API key is never exposed to the browser | Address search string |
+| **Google Gemini API** | Generates the plain-English "Quick Read" market summary shown in the result card | Address, budget, and aggregated statistical outputs (Market Match Index score, clearance rate, auction count, comparable sale details). No personally identifying information is included |
 
 ---
 
